@@ -7,15 +7,14 @@ import "bootstrap/dist/js/bootstrap.min.js"
 import "@fortawesome/fontawesome-free/css/all.css"
 import "normalize.css";
 //to work mixins correctly make search
-
 createApp(App).use(store).use(router).mixin({
-    methods: {
-      abbr: function (sentence, charsLimit = 11) {
-        console.log("sentence ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : null",sentence ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : null)
-        return sentence ? (sentence.length > charsLimit ) ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : sentence : null;
-      },
-      abbrLetter  : function (sentence, charsLimit = 11) {
-        return sentence ? sentence.length > charsLimit ? sentence.substr(0, charsLimit-3 ) + '...' : sentence : null;
-    
+  methods: {
+    abbr: function (sentence, charsLimit = 11) {
+      console.log("sentence ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : null", sentence ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : null)
+      return sentence ? (sentence.length > charsLimit ) ? sentence.slice(0, charsLimit).padEnd(charsLimit+3 , '.') : sentence : null;
+    },
+    abbrLetter  : function (sentence, charsLimit = 11) {
+      return sentence ? sentence.length > charsLimit ? sentence.substr(0, charsLimit-3 ) + '...' : sentence : null;
     }
-  }).mount('#app')
+  }
+}).mount('#app')
