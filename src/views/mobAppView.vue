@@ -28,7 +28,7 @@
   import MainLayout from '../Components/Layouts/mainLayout.vue';
 
   export default {
-    name: 'books-view',
+    name: 'mobile-app',
     data() {
       return {
       showNavbarCollapse: false

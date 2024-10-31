@@ -46,6 +46,7 @@
             style=" ">
                 <span class="nav-link-dropdown">دور النشر</span>
             </router-link>
+
         </li>
        
         <li class="nav-item  nav-item-collaspe  px-3 py-0">
@@ -88,7 +89,7 @@
             </a>
            </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-bottom navbar-scroll bg-md-petrol bg-lg-petrol bg-xl-petrol  menu  fixed-top top-83  px-0 " >
+    <nav class=" navbar navbar-expand-lg navbar-bottom navbar-scroll bg-md-petrol bg-lg-petrol bg-xl-petrol  menu  fixed-top top-83  px-0 ">
         <div class="container"> 
             <div class="row justify-content-lg-between justify-content-xl-between w-100  justify-content-center ">
                 <RouterLink class="d-none d-lg-none col-md-2 navbar-brand logo-scroll mr-0 px-0" style=" height: 49px;width:126px;"  href="/">
@@ -107,30 +108,40 @@
                 </form>
                 <div class="col-md-8 p-0 collapse navbar-collapse navbar-collapse-scroll" id="navbarTogglerDemo03">
                     <ul class="navbar-nav  mt-2 mt-lg-0 pr-0">
-                    <li class="nav-item active">
+                    <li class="nav-item active nav-item-simon-hover nav-item-xl">
                         <RouterLink class="nav-link d-flex justify-content-between align-items-center nav-link-scroll" to="/">
                             <i class="mx-1 fa fa-home"></i>
                             <span>الرئيسية</span>
                         </RouterLink>
                     </li>
                    
-                    <li class="nav-item dropdown">
-                        <router-link class="nav-link dropdown-toggle   nav-link-scroll" to="/products" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown nav-item-simon-hover nav-item-xl">
+                        <RouterLink class="nav-link dropdown-toggle  nav-link-scroll" to="/products" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             الكتب
-                        </router-link>
+                        </RouterLink>
+                        <div class="dropdown-menu text-right" aria-labelledby="dorNashNavbarDropdown">
+                            <RouterLink v-for="(cat, index) in categories" :key="index" class="dropdown-item dropdown-item-xl" to='/'>
+                                {{cat.name}}
+                            </RouterLink>
+                        </div>
                       </li>
-                    <li class="nav-item dropdown">
-                        <RouterLink class="nav-link dropdown-toggle  nav-link-scroll" to="dor-nashr" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown nav-item-simon-hover nav-item-xl">
+                        <RouterLink class="nav-link dropdown-toggle  nav-link-scroll" to="dor-nashr" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             دور النشر 
                         </RouterLink>
+                        <div class="dropdown-menu text-right" aria-labelledby="dorNashNavbarDropdown">
+                            <RouterLink v-for="(dor, index) in dorNashr" :key="index" class="dropdown-item dropdown-item-xl" to='/'>
+                                {{dor.name}}{{ dor.country? ` - ${dor.country.ar} `: '' }}
+                            </RouterLink>
+                        </div>
                       </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-item-simon-hover  nav-item-xl">
                         <RouterLink class="nav-link  nav-link-scroll" to="/price-list">قوائم الاسعار</RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-item-simon-hover  nav-item-xl">
                         <RouterLink class="nav-link  nav-link-scroll" to="/follow-car">تتبع شحنتك</RouterLink>
                     </li>
-                     <li class="nav-item">
+                     <li class="nav-item nav-item-simon-hover  nav-item-xl">
                         <RouterLink class="nav-link  nav-link-scroll" to="/mob-app">تطبيق الهاتف</RouterLink>
                     </li>
                     </ul>
@@ -153,74 +164,231 @@
 
 export default {
   name: 'NavBar',
+  data() {
+    return {
+
+        dorNashr: [
+        {
+          "name":"دور النشر",
+          "image":"dor_nashr/مركز-تحقيق-النصوص.jpg",
+          "country":null
+        },
+        {
+          "name":"مركز تحقيق النصوص",
+          "image":"dor_nashr/مركز-تحقيق-النصوص.jpg",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        {
+          "name":"مكتبة الانوار",
+          "image":"dor_nashr/مكتبة-الأنوار.jpg",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        {
+          "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        
+        {
+           "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        {
+          "name":"مركز تحقيق النصوص",
+          "image":"dor_nashr/مركز-تحقيق-النصوص.jpg",
+          "country":{
+            "en":'kuiet',
+            "ar":'الكويت'
+          }
+        },
+        {
+          "name":"مكتبة الانوار",
+          "image":"dor_nashr/مكتبة-الأنوار.jpg",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        {
+          "name":"مركز تحقيق النصوص",
+          "image":"dor_nashr/مركز-تحقيق-النصوص.jpg",
+          "country":{
+            "en":'egypt',
+            "ar":'مصر'
+          }
+        },
+        {
+          "name":"مكتبة الانوار",
+          "image":"dor_nashr/مكتبة-الأنوار.jpg",
+          "country":{
+            "en":'Qatar',
+            "ar":'قطر'
+          }
+        },
+        {
+           "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'Yaman',
+            "ar":'اليمن'
+          }
+        },
+        {
+          "name":"دار الاصول العلمية",
+          "image":"dor_nashr/دار-الاصول-العلمية.jpg",
+          "country":{
+            "en":'palstine',
+            "ar":'فلسطين'
+          }
+        },
+        
+        {
+          "name":"دار الامام ابن عرفه تونس",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'saudia arabia',
+            "ar":'السعودية'
+          }
+        },
+        {
+           "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'دمشق',
+            "ar":'dimshq'
+          }
+        },
+        {
+           "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'siria',
+            "ar":'سوريا'
+          }
+        },
+        
+        {
+           "name":"الدار الشامية تركيا",
+          "image":"dor_nashr/الدار-الشامية-تركيا.png",
+          "country":{
+            "en":'jordon',
+            "ar":'لبنان'
+          }
+        }
+        ],   
+        categories: [
+        {
+          "name":"الاعمال الكاملة",
+          "image":"categries/الاعمال-الكاملة.jpg"
+        },
+        {
+          "name":"التاريخ والتراجم",
+          "image":"categries/التريخ-و-التراجم-840x1024-1-120x146.jpg"
+        },
+        {
+          "name":"الحديث الشريف",
+          "image":"categries/الحديث-الشريف.jpg"
+        },
+        {
+          "name":"السيرة والشمائل",
+          "image":"categries/السيرة-و-الشمائل-840x1024-1-120x146.jpg"
+        },
+        
+        {
+          "name":"الفقه واصوله",
+          "image":"categries/الفقه-و-اصوله-840x1024-1-120x146.jpg"
+        },
+        {
+           "name":"القران الكريم وعلومه",
+           "image":"categries/القران-الكريم-و-علومه-840x1024-1-120x146.jpg"
+        },
+        {
+           "name":"اللغة العربية وعلومها",
+          "image":"categries/اللغة-الغربية-و-علومها-840x1024-1-120x146.jpg"
+        },
+        
+        {
+           "name":"اللغة محب الكتب",
+          "image":"categries/اللغة-محب-الكتب-120x146.jpg",
+        },
+        {
+           "name":"المنطق وعلم الكلام",
+          "image":"categries/المنطق-و-علم-الكلام.jpg",
+        },
+        {
+           "name":"دراسات اسلامية",
+          "image":"categries/دراسات-اسلامية.jpg",
+        },
+      ],
+    }
+  },
   mounted() {
     const navbarScroll = document.querySelector('.navbar-scroll');
+
     const searchNavbarScroll = document.querySelector('.search-form-scroll');
     const navLinks = document.querySelectorAll('.nav-link-scroll');
+    const navHoverActiveLinks = document.querySelectorAll('.nav-item-xl');
+
     const navbarHiddenScroll = document.querySelector('.navbar-hidden-scroll');
     const logoScroll = document.querySelector('.logo-scroll');
     const navbarCollapseScroll = document.querySelector('.navbar-collapse-scroll');
     const navbarBarsScroll = document.querySelector('.navbar-bars-scroll');
     const whatsappBtnScroll = document.querySelector('.whatsapp-btn-scroll');
-
- //   if (navbarScroll && searchNavbarScroll && navbarHiddenScroll && logoScroll && navbarCollapseScroll && navbarBarsScroll && whatsappBtnScroll) {
     window.addEventListener("scroll", () => {
         const scrolled = window.scrollY;
         if (scrolled === 0) {
             navbarHiddenScroll.classList.remove('d-none');
-
-
             //style  not scroll mobile and tablets screens
             // navbar bottom navbar show on not scroll
             navbarScroll.classList.remove('bg-lg-white');
             navbarScroll.classList.remove('bg-xl-white');
             navbarScroll.classList.add('bg-lg-petrol');
             navbarScroll.classList.add('bg-xl-petrol');
-
             navbarScroll.classList.remove('shadow-sm');
             navbarScroll.classList.remove('top-0');
             navbarScroll.classList.add('top-83');
 
             // search form
             searchNavbarScroll.classList.add('col-12');
-            // searchNavbarScroll.classList.add('col-sm-12');
-            // searchNavbarScroll.classList.add('col-md-12');
-            // searchNavbarScroll.classList.remove('col-xs-7');
-            // searchNavbarScroll.classList.remove('col-sm-7');
             searchNavbarScroll.classList.remove('col-7');
-
             logoScroll.classList.add('d-lg-none');
             logoScroll.classList.remove('d-lg-block');
-
-
             navbarCollapseScroll.classList.add('col-md-9');
             navbarCollapseScroll.classList.remove('col-md-8');
-            
             // Change the color of nav links
             navLinks.forEach(link => {
-                link.classList.remove('text-lg-petrol');
-                link.classList.remove('text-xl-petrol')
-
+              link.classList.remove('text-lg-petrol');
+              link.classList.remove('text-xl-petrol');
+            });
+            navHoverActiveLinks.forEach(link => {
+              link.classList.add('nav-item-simon-hover');
+              link.classList.remove('nav-item-blueLight-hover');
             });
             // hide bars btn from navbar bottom
-            
             navbarBarsScroll.classList.add('d-none');
-            navbarBarsScroll.classList.remove('col-1');
-                        
+            navbarBarsScroll.classList.remove('col-1')       
             // show whatsapp btn in navbar bottom
             whatsappBtnScroll.classList.add('d-none');
             whatsappBtnScroll.classList.remove('col-1');
         } else {
             navbarHiddenScroll.classList.add('d-none');
-
             navbarScroll.classList.add('shadow-sm');
             navbarScroll.classList.add('top-0');
             navbarScroll.classList.remove('top-83');
-
-
-
             // shhow the logo image
-
             logoScroll.classList.remove('d-lg-none');
             logoScroll.classList.add('d-lg-block');
             
@@ -230,7 +398,10 @@ export default {
             navLinks.forEach(link => {
                 link.classList.add('text-xl-petrol');
                 link.classList.add('text-lg-petrol')
-
+            });
+            navHoverActiveLinks.forEach(link => {
+              link.classList.remove('nav-item-simon-hover');
+              link.classList.add('nav-item-blueLight-hover');
             });
             //style n scroll mobile and tablets screens
             // navbar bottom navbar show onscroll
@@ -238,35 +409,24 @@ export default {
             navbarScroll.classList.remove('bg-xl-petrol');
             navbarScroll.classList.add('bg-lg-white');
             navbarScroll.classList.add('bg-xl-white');
-
             // search form
             searchNavbarScroll.classList.remove('col-12');
-            // searchNavbarScroll.classList.remove('col-sm-12');
-            // searchNavbarScroll.classList.remove('col-md-12');
-            // searchNavbarScroll.classList.add('col-xs-7');
-            // searchNavbarScroll.classList.add('col-sm-7');
             searchNavbarScroll.classList.add('col-7');
-
             //  show bars btn
             navbarBarsScroll.classList.remove('d-none');
             navbarBarsScroll.classList.add('col-1');
-
             // show whatsapp btn in navbar bottom
             whatsappBtnScroll.classList.remove('d-none');
             whatsappBtnScroll.classList.add('col-1');
         }
     });
-//}
-
   },
   methods: {
     toggleNavbar() {
-
       this.$emit('toggle-navbar')
-
     },
     hideNavbar() {
-        this.$emit('hide-navbar')
+      this.$emit('hide-navbar')
     }
   }
 }
@@ -351,6 +511,7 @@ export default {
     color: #fcfcfc;
     background-color: #3b7d89;
 }
+
 .whatsapp-btn {
     font-weight: 600;
     padding: 10px 27px !important;
@@ -382,9 +543,14 @@ export default {
     width: 90%;
     text-align: right;
 }
-.nav-item:hover a {
+.navbar-collapse-scroll .nav-item-simon-hover:hover a:not(.dropdown-item),
+.navbar-collapse-scroll .nav-item-simon-hover.active a:not(.dropdown-item) {
     color: rgb(255, 235, 217) !important;  
+}
 
+.navbar-collapse-scroll .nav-item-blueLight-hover:hover a:not(.dropdown-item),
+.navbar-collapse-scroll .nav-item-blueLight-hover.active a:not(.dropdown-item) {
+    color: #3b7d89 !important;  
 }
 .nav-item-collaspe:hover a {
  color: #d8b731 !important;   
@@ -449,6 +615,32 @@ export default {
  .icons .icon:hover {
     opacity: 0.8;
   }
+  .dropdown-menu {
+    left: unset !important;
+    padding: 0;
+    min-width: 210px;
+  }
+.dropdown-menu .dropdown-item{
+    color: #333333;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    padding: .4rem 1rem;
+}
+.dropdown-menu .dropdown-item:hover{
+    color: #d8b731  !important  ;
+}
+.dropdown-menu .dropdown-item-xl:hover{
+    color: rgb(35, 112, 244)  !important;
+    background-color: rgb(245, 250, 255);
+}
+/* Show dropdown-menu on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
 /*media queries*/
 @media (max-width: 576px) {
     .d-xs-block {

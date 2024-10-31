@@ -11,7 +11,7 @@
           <div class="bg-white mx-0" style="padding-top: 28px;">
             <div class="container">
               <div class="row">
-                <div  v-for="(dor, i) in dorNashr"  :key="i" class=" product-brand  col-4 col-sm-3 col-md-2 col-lg-8 col-xl-10 px-0  mx-0">
+                <div  v-for="(dor, i) in dorNashr"  :key="i" class="product-brand col-12 col-sm-6 col-md-3 col-lg-2 col-xl-80 px-0  mx-0">
                   <div class="dor w-100 text-center" >
                     <div class="dor-image position-relative">
                       <img class="d-block w-100" :src="dor.image" :alt="dor.name" />
@@ -35,7 +35,7 @@
 import MainLayout from '../Components/Layouts/mainLayout.vue';
 
   export default {
-    name: 'books-view',
+    name: 'dorNashrs-view',
     data() {
       return {
         dorNashr: [
@@ -199,7 +199,7 @@ import MainLayout from '../Components/Layouts/mainLayout.vue';
   color: #d8b731 !important;   
 }
  .dor .dor-image  {
-  height:10rem;
+  /*height:10rem;*/
   overflow: hidden;
   cursor: pointer;
   margin: auto;
@@ -221,6 +221,15 @@ import MainLayout from '../Components/Layouts/mainLayout.vue';
   font-weight: 400;
   color: #186475  !important;
 }
+.light-container {
+  background-color: rgb(81 74 74 / 44%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}  
 @media (min-width: 768px) {
   .col-lg-8 {
     flex: 0 0 12.50%;
@@ -233,13 +242,13 @@ import MainLayout from '../Components/Layouts/mainLayout.vue';
     max-width: 10%;
   }
 }
-  .light-container {
-    background-color: rgb(81 74 74 / 44%);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10000;
-  }  
+@media (min-width: 1200px) {
+  .col-xl-80 {
+      -ms-flex: 0 0 12.50%;
+      flex: 0 0 12.50%;
+      max-width: 12.50%;
+  }
+}
+
+
 </style>

@@ -33,7 +33,7 @@
   import MainLayout from '../Components/Layouts/mainLayout.vue';
 
   export default {
-    name: 'books-view',
+    name: 'price-lists',
     data() {
       return {
         lists: [
