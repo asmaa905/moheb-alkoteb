@@ -19,7 +19,7 @@ npm run build
 ```
 npm run lint
 ```
-# book store with vue js 3 demo link 
+# demo link 
 https://mohebelkuteb.netlify.app/
 
 ### Customize configuration
